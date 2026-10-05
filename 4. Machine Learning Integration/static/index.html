@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mental Health Score Predictor</title>
+  <meta name="description" content="An ML-powered estimate of wellbeing patterns based on lifestyle, academic, social media and sleep habits." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+  <a class="skip-link" href="#predictForm">Skip to prediction form</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="Mental Health Score Predictor home">
+        <span class="brand-mark" aria-hidden="true">
+          <span class="brand-pulse"></span>
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">Wellbeing Compass</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#predictForm">Assessment</a>
+        <a href="#disclaimer">Disclaimer</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <h1 class="hero-title">Mental Health Score Predictor</h1>
+      <p class="hero-subtitle">
+        Answer a short set of questions about your academic life, social media habits, sleep, and
+        activity levels. A trained machine-learning model turns those patterns into a single
+        wellbeing score you can reflect on.
+      </p>
+    </section>
+
+    <!-- ============ FORM ============ -->
+    <section class="form-section" aria-labelledby="form-heading">
+      <div class="form-card">
+        <h2 id="form-heading" class="form-heading">Tell us about your day-to-day</h2>
+        <p class="form-subheading">All fields are required so the model has a complete picture.</p>
+
+        <form id="predictForm" novalidate>
+
+          <!-- ---- Personal Information ---- -->
+          <fieldset class="field-group">
+            <legend><i class="fa-solid fa-user" aria-hidden="true"></i> Personal information</legend>
+            <div class="field-grid">
+
+              <div class="field">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="Age" min="1" max="150" step="1" required
+                       aria-describedby="age-error" placeholder="e.g. 22" />
+                <span class="field-error-message" id="age-error" role="alert"></span>
+              </div>
+
+              <div class="field">
+                <label for="gender">Gender</label>
+                <select id="gender" name="Gender" required aria-describedby="gender-error">
+                  <option value="" disabled selected>Select gender</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+                </select>
+                <span class="field-error-message" id="gender-error" role="alert"></span>
+              </div>
+
+              <div class="field">
+                <label for="country">Country</label>
+                <select id="country" name="Country" required aria-describedby="country-error">
+                  <option value="" disabled selected>Select country</option>
+                  <option value="Other">Other</option>
+                  <option value="Canada">Canada</option>
+                  <option value="USA">USA</option>
+                  <option value="India">India</option>
+                  <option value="Australia">Australia</option>
+                  <option value="UK">UK</option>
+                  <option value="Germany">Germany</option>
+                </select>
+                <span class="field-error-message" id="country-error" role="alert"></span>
+              </div>
+
+              <div class="field">
+                <label for="academicLevel">Academic level</label>
+                <select id="academicLevel" name="Academic_Level" required aria-describedby="academicLevel-error">
+                  <option value="" disabled selected>Select level</option>
+                  <option value="Undergraduate">Undergraduate</option>
+                  <option value="Graduate">Graduate</option>
+                  <option value="High School">High School</option>
+                </select>
+                <span class="field-error-message" id="academicLevel-error" role="alert"></span>
+              </div>
+
+            </div>
+          </fieldset>
+
+          <!-- ---- Social Media Usage ---- -->
+          <fieldset class="field-group">
+            <legend><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i> Social media usage</legend>
+            <div class="field-grid">
+
+              <div class="field">
+                <label for="platform">Most used platform</label>
+                <select id="platform" name="Most_Used_Platform" required aria-describedby="platform-error">
+                  <option value="" disabled selected>Select platform</option>
+                  <option value="Facebook">Facebook</option>
+                  <option value="LinkedIn">LinkedIn</option>
+                  <option value="Instagram">Instagram</option>
+                  <option value="Snapchat">Snapchat</option>
+                  <option value="Twitter">Twitter</option>
+                  <option value="YouTube">YouTube</option>
+                  <option value="TikTok">TikTok</option>
+                  <option value="LINE">LINE</option>
+                  <option value="KakaoTalk">KakaoTalk</option>
+                  <option value="VKontakte">VKontakte</option>
+                  <option value="WhatsApp">WhatsApp</option>
+                  <option value="WeChat">WeChat</option>
+                </select>
+                <span class="field-error-message" id="platform-error" role="alert"></span>
+              </div>
+
+              <div class="field">
+                <label for="purpose">Purpose of use</label>
+                <select id="purpose" name="Purpose_Of_Use" required aria-describedby="purpose-error">
+                  <option value="" disabled selected>Select purpose</option>
+                  <option value="Networking">Networking</option>
+                  <option value="Education">Education</option>
+                  <option value="Entertainment">Entertainment</option>
+                  <option value="News">News</option>
+                </select>
+                <span class="field-error-message" id="purpose-error" role="alert"></span>
+              </div>
+
+              <div class="field">
+                <label for="dailyUsage">Average daily usage (hours)</label>
+                <input type="number" id="dailyUsage" name="Avg_Daily_Usage_Hours" min="1" max="24" step="0.5" required
+                       aria-describedby="dailyUsage-error" placeholder="e.g. 5" />
+                <span class="field-error-message" id="dailyUsage-error" role="alert"></span>
+              </div>
+
+              <div class="field">
+                <label for="dailyUnlocks">Daily phone unlocks</label>
+                <input type="number" id="dailyUnlocks" name="Daily_Unlocks" min="1" max="500" step="1" required
+                       aria-describedby="dailyUnlocks-error" placeholder="e.g. 80" />
+                <span class="field-error-message" id="dailyUnlocks-error" role="alert"></span>
+              </div>
+
+            </div>
+          </fieldset>
+
+          <!-- ---- Lifestyle Information ---- -->
+          <fieldset class="field-group">
+            <legend><i class="fa-solid fa-leaf" aria-hidden="true"></i> Lifestyle information</legend>
+            <div class="field-grid">
+
+              <div class="field">
+                <label for="studyHours">Study hours (per day)</label>
+                <input type="number" id="studyHours" name="Study_Hours" min="1" max="24" step="0.5" required
+                       aria-describedby="studyHours-error" placeholder="e.g. 4" />
+                <span class="field-error-message" id="studyHours-error" role="alert"></span>
+              </div>
+
+              <div class="field">
+                <label for="activityHours">Physical activity (hours per day)</label>
+                <input type="number" id="activityHours" name="Physical_Activity_Hours" min="1" max="24" step="0.5" required
+                       aria-describedby="activityHours-error" placeholder="e.g. 1" />
+                <span class="field-error-message" id="activityHours-error" role="alert"></span>
+              </div>
+
+              <div class="field">
+                <label for="sleepHours">Sleep hours per night</label>
+                <input type="number" id="sleepHours" name="Sleep_Hours_Per_Night" min="1" max="24" step="0.5" required
+                       aria-describedby="sleepHours-error" placeholder="e.g. 7" />
+                <span class="field-error-message" id="sleepHours-error" role="alert"></span>
+              </div>
+
+              <div class="field">
+                <label for="stressLevel">Stress level</label>
+                <select id="stressLevel" name="Stress_Level" required aria-describedby="stressLevel-error">
+                  <option value="" disabled selected>Select stress level</option>
+                  <option value="Low">Low</option>
+                  <option value="Medium">Medium</option>
+                  <option value="High">High</option>
+                  <option value="Very High">Very High</option>
+                </select>
+                <span class="field-error-message" id="stressLevel-error" role="alert"></span>
+              </div>
+
+            </div>
+          </fieldset>
+
+          <!-- ---- API error banner ---- -->
+          <div id="apiError" class="api-error" role="alert" aria-live="assertive" hidden>
+            <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+            <span id="apiErrorText"></span>
+          </div>
+
+          <!-- ---- Loading indicator ---- -->
+          <div id="loadingIndicator" class="loading-indicator" hidden>
+            <span class="spinner" aria-hidden="true"></span>
+            <span>Analyzing your responses…</span>
+          </div>
+
+          <!-- ---- Actions ---- -->
+          <div class="form-actions">
+            <button type="reset" id="resetBtn" class="btn btn-ghost">
+              <i class="fa-solid fa-rotate-left" aria-hidden="true"></i> Reset form
+            </button>
+            <button type="submit" id="submitBtn" class="btn btn-primary">
+              <span class="btn-label"><i class="fa-solid fa-chart-simple" aria-hidden="true"></i> Predict my score</span>
+            </button>
+          </div>
+
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ RESULT CARD ============ -->
+    <section id="resultCard" class="result-card" aria-live="polite" hidden>
+      <div class="result-inner">
+        <div class="result-icon" aria-hidden="true"><i class="fa-solid fa-circle-check"></i></div>
+        <h2 class="result-title">Your predicted mental health score</h2>
+
+        <div class="gauge-wrap">
+          <svg class="gauge" viewBox="0 0 200 200" role="img" aria-label="Score gauge">
+            <circle class="gauge-track" cx="100" cy="100" r="80" />
+            <circle class="gauge-fill" id="gaugeFill" cx="100" cy="100" r="80" />
+          </svg>
+          <div class="gauge-center">
+            <span class="gauge-score" id="scoreValue">0.00</span>
+            <span class="gauge-score-label">out of 10</span>
+          </div>
+        </div>
+
+        <p class="result-interpretation" id="interpretationText"></p>
+
+        <p class="result-note">
+          <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+          This is a machine-learning estimate only, not a clinical diagnosis.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ DISCLAIMER ============ -->
+    <section id="disclaimer" class="notice-strip notice-strip-muted">
+      <i class="fa-solid fa-stethoscope" aria-hidden="true"></i>
+      <p>
+        This tool provides a machine-learning estimate for educational purposes only. It is not a
+        medical diagnosis and should not replace advice from a qualified mental health professional.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    
+  </footer>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
